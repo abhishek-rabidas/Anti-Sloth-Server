@@ -6,6 +6,8 @@ import com.antislothserver.Views.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthenticationController {
@@ -21,5 +23,10 @@ public class AuthenticationController {
     @PostMapping("/login")
     public String showUser(@RequestBody LoginResponse loginResponse){
         return authService.login(loginResponse);
+    }
+
+    @GetMapping("/usernames")
+    public List<String> getAllUsernames(){
+        return authService.getAllUsernames();
     }
 }

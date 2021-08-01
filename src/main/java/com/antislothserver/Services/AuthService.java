@@ -6,7 +6,10 @@ import com.antislothserver.Views.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class AuthService {
@@ -26,5 +29,9 @@ public class AuthService {
             return user.getUid();
         else
             return "false";
+    }
+
+    public List<String> getAllUsernames(){
+        return userRepository.findAll().stream().map(User::getUsername).collect(Collectors.toList());
     }
 }
