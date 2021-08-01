@@ -4,10 +4,11 @@ import com.antislothserver.Models.User;
 import com.antislothserver.Repo.UserRepository;
 import com.antislothserver.Views.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@Service
 public class AuthService {
 
     @Autowired
