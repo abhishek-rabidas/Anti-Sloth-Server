@@ -2,6 +2,7 @@ package com.antislothserver.Services;
 
 import com.antislothserver.Models.User;
 import com.antislothserver.Repo.UserRepository;
+import com.antislothserver.Views.ShowUserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +11,10 @@ public class UserServices {
     @Autowired
     UserRepository userRepository;
 
-    public User getUser(String username){
-        return userRepository.findByUsername(username);
+    public ShowUserResponse getUser(String username){
+        User user = userRepository.findByUsername(username);
+        return new ShowUserResponse(user.getUid(), user.getFullname(), user.getUsername(), user.getEmail(), user.getSleepRecord());
+
     }
 
     public Boolean userValidation(String uid){

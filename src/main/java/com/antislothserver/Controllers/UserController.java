@@ -2,6 +2,7 @@ package com.antislothserver.Controllers;
 
 import com.antislothserver.Models.User;
 import com.antislothserver.Services.UserServices;
+import com.antislothserver.Views.ShowUserResponse;
 import com.antislothserver.Views.ValidationRequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ public class UserController {
     UserServices userServices;
 
     @GetMapping("/show/{username}")
-    public User showUser(@PathVariable String username){
+    public ShowUserResponse showUser(@PathVariable String username){
         return userServices.getUser(username);
     }
 
